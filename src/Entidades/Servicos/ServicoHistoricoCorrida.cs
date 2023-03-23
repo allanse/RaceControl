@@ -1,4 +1,5 @@
-﻿using RaceControl.Dominio.Entidades;
+﻿using RaceControl.Dominio.DTOs;
+using RaceControl.Dominio.Entidades;
 using RaceControl.Dominio.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,13 @@ namespace RaceControl.Dominio.Servicos
             var pistas = await repositorioHistoricoCorrida.ObterPistasUtilizadas();
 
             return pistas;
+        }
+
+        public async Task<IEnumerable<CompetidorSemCorridaDTO>> ObterCompetidoresSemCorrida()
+        {
+            var compeditoresSemCorrida = await repositorioHistoricoCorrida.ObterCompetidoresSemCorrida();
+
+            return compeditoresSemCorrida;
         }
     }
 }
