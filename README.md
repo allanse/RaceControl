@@ -29,13 +29,13 @@ Validações:
 
 TODO List:
 
-- Validar se sexo é M, F ou O;
-- Listagem dos competidores com o tempo médio gasto
+- [ ] Validar se sexo é M, F ou O;
+- [ ] Listagem dos competidores com o tempo médio gasto
 nas corridas;
-- Listagem dos competidores que não fizeram nenhuma
+- [x] Listagem dos competidores que não fizeram nenhuma
 corrida;
-- Criar teste unitários;
-- Criar sistema de notificações para tratar erros;
-- Utilizar docker;
+- [ ] Criar teste unitários;
+- [ ] Criar sistema de notificações para tratar erros;
+- [ ] Utilizar docker;
 
 
