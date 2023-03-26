@@ -27,15 +27,8 @@ Validações:
   Validar se sexo é M, F ou O;
   Validar se data da corrida não está no futuro;
 
-TODO List:
+Obs.: Deixei o Swagger ativo na execução do projeto para poder testar as API´s sem precisar usar software terceiro (Postman, Insomnima e etc...);
 
-- [ ] Validar se sexo é M, F ou O;
-- [ ] Listagem dos competidores com o tempo médio gasto
-nas corridas;
-- [x] Listagem dos competidores que não fizeram nenhuma
-corrida;
-- [ ] Criar teste unitários;
-- [ ] Criar sistema de notificações para tratar erros;
-- [ ] Utilizar docker;
+
 
 
