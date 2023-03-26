@@ -32,11 +32,6 @@ namespace RaceControl.Dominio.Servicos
             return pistas;
         }
 
-        public async Task<IEnumerable<CompetidorSemCorridaDTO>> ObterCompetidoresSemCorrida()
-        {
-            var compeditoresSemCorrida = await repositorioHistoricoCorrida.ObterCompetidoresSemCorrida();
-
-            return compeditoresSemCorrida;
-        }
+        
     }
 }

@@ -57,15 +57,6 @@ namespace RaceControl.WebAPIs.Controllers
             var pistas = await servicoHistoricoCorrida.ObterPistasUtilizadas();
             
             return Ok(pistas);
-        }
-
-        [HttpGet]
-        [Route("competidores-sem-corrida")]
-        public async Task<ActionResult<IEnumerable<CompetidorSemCorridaDTO>>> GetCompetidoresSemCorrida()
-        {
-            var competidores = await servicoHistoricoCorrida.ObterCompetidoresSemCorrida();
-
-            return Ok(competidores);
-        }
+        }        
     }
 }

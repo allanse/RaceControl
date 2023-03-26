@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RaceControl.Dominio.DTOs;
 using RaceControl.Dominio.Entidades;
 using RaceControl.Dominio.Servicos;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace RaceControl.WebAPIs.Controllers
@@ -59,5 +61,22 @@ namespace RaceControl.WebAPIs.Controllers
             return Ok(result);
         }
 
+        [HttpGet]
+        [Route("competidores-sem-corrida")]
+        public async Task<ActionResult<IEnumerable<CompetidorSemCorridaDTO>>> GetCompetidoresSemCorrida()
+        {
+            var competidores = await servicoCompetidor.ObterCompetidoresSemCorrida();
+
+            return Ok(competidores);
+        }
+
+        [HttpGet]
+        [Route("competidores-com-tempo-medio")]
+        public async Task<ActionResult<IEnumerable<CompetidorSemCorridaDTO>>> GetCompetidoresComTempoMedio()
+        {
+            var competidores = await servicoCompetidor.ObterCompetidoresComTempoMedioNasCorridas();
+
+            return Ok(competidores);
+        }
     }
 }

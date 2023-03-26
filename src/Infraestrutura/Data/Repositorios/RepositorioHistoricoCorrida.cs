@@ -27,17 +27,6 @@ namespace RaceControl.Infraestrutura.Data.Repositorios
                 .OrderBy(p => p.PistaCorrida.Descricao)
                 .Select(p => new PistaCorrida { Descricao = p.PistaCorrida.Descricao })
                 .ToListAsync();
-        }
-
-        public async Task<IEnumerable<CompetidorSemCorridaDTO>> ObterCompetidoresSemCorrida()
-        {
-            var competidores = await repositorioCompetidor.GetAll();
-
-            var historicoCorridaCompetidorIds = Db.HistoricoCorrida.Select(h => h.Competidor.Id).Distinct().ToList();
-
-            var competidoresSemCorrida = competidores.Where(c => !historicoCorridaCompetidorIds.Contains(c.Id)).Select(c => new CompetidorSemCorridaDTO { Nome = c.Nome }).ToList();
-            
-            return competidoresSemCorrida;
-        }
+        }        
     }
 }

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using RaceControl.Infraestrutura.Configuracao;
 using RaceControl.Infraestrutura.Configuracao.Data;
+using System.Text.Json.Serialization;
 
 namespace WebAPIs
 {
@@ -28,6 +29,11 @@ namespace WebAPIs
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "APIs do ReceControl", Version = "v1" });
+            });
+            
+            services.AddControllers().AddJsonOptions(x =>
+            {
+                x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
             });
         }
 

@@ -19,6 +19,7 @@ namespace RaceControl.Infraestrutura.Configuracao
             containerBuilder.RegisterType<RepositorioBase<PistaCorrida>>().As<IRepositorioBase<PistaCorrida>>();
             containerBuilder.RegisterType<RepositorioBase<HistoricoCorrida>>().As<IRepositorioBase<HistoricoCorrida>>();
             containerBuilder.RegisterType<RepositorioHistoricoCorrida>().As<IRepositorioHistoricoCorrida>();
+            containerBuilder.RegisterType<RepositorioCompetidor>().As<IRepositorioCompetidor>();
 
             containerBuilder.Register(ctx => new MapperConfiguration(cfg =>
             {

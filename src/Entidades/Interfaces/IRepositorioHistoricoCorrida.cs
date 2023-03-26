@@ -7,7 +7,6 @@ namespace RaceControl.Dominio.Interfaces
 {
     public interface IRepositorioHistoricoCorrida : IRepositorioBase<HistoricoCorrida>
     {
-        Task<IEnumerable<PistaCorrida>> ObterPistasUtilizadas();
-        Task<IEnumerable<CompetidorSemCorridaDTO>> ObterCompetidoresSemCorrida();
+        Task<IEnumerable<PistaCorrida>> ObterPistasUtilizadas();        
     }
 }
