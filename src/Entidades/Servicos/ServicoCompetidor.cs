@@ -1,5 +1,4 @@
-﻿using Dominio.Enums;
-using RaceControl.Dominio.DTOs;
+﻿using RaceControl.Dominio.DTOs;
 using RaceControl.Dominio.Entidades;
 using RaceControl.Dominio.Interfaces;
 using System.Collections.Generic;
@@ -16,35 +15,6 @@ namespace RaceControl.Dominio.Servicos
             this.repositorioCompetidor = repositorioCompetidor;
         }
 
-        public bool ValidarCompetidor(Competidor competidor)
-        {
-            if (competidor.Peso <=0)
-            {
-                return false;
-            }
-
-            if (competidor.Altura <= 0)
-            {
-                return false;
-            }
-
-            if (competidor.Sexo != ESexo.M)
-            {
-                return false;
-            }
-
-            if (competidor.Sexo != ESexo.F)
-            {
-                return false;
-            }
-
-            if (competidor.Sexo != ESexo.O)
-            {
-                return false;
-            }
-
-            return true;
-        }
         public async Task<IEnumerable<CompetidorSemCorridaDTO>> ObterCompetidoresSemCorrida()
         {
             var compeditoresSemCorrida = await repositorioCompetidor.ObterCompetidoresSemCorrida();

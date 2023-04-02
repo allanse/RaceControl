@@ -4,16 +4,12 @@ using RaceControl.Dominio.Entidades;
 
 namespace RaceControl.Dominio.Mappers
 {
-    public class DtoToEntidadeMappingHistoricoCorrida: Profile
+    public class Mappings: Profile
     {
-        public DtoToEntidadeMappingHistoricoCorrida()
-        {
-            HistoricoCorridaMap();
-        }
-
-        private void HistoricoCorridaMap()
+        public Mappings()
         {
             CreateMap<HistoricoCorridaDTO, HistoricoCorrida>().ReverseMap();
+            CreateMap<CompetidorDTO, Competidor>().ReverseMap();
         }
     }
 }

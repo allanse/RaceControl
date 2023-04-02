@@ -8,7 +8,7 @@ using RaceControl.Infraestrutura.Data.Repositorios;
 
 namespace RaceControl.Infraestrutura.Configuracao
 {
-    public class ConfiguracaoIOC
+    public class ConfiguracaoDI
     {
         public static void Load (ContainerBuilder containerBuilder)
         {
@@ -18,12 +18,12 @@ namespace RaceControl.Infraestrutura.Configuracao
             containerBuilder.RegisterType<RepositorioBase<Competidor>>().As<IRepositorioBase<Competidor>>();
             containerBuilder.RegisterType<RepositorioBase<PistaCorrida>>().As<IRepositorioBase<PistaCorrida>>();
             containerBuilder.RegisterType<RepositorioBase<HistoricoCorrida>>().As<IRepositorioBase<HistoricoCorrida>>();
-            containerBuilder.RegisterType<RepositorioHistoricoCorrida>().As<IRepositorioHistoricoCorrida>();
+            containerBuilder.RegisterType<RepositorioPistaCorrida>().As<IRepositorioPistaCorrida>();
             containerBuilder.RegisterType<RepositorioCompetidor>().As<IRepositorioCompetidor>();
 
             containerBuilder.Register(ctx => new MapperConfiguration(cfg =>
             {
-                cfg.AddProfile(new DtoToEntidadeMappingHistoricoCorrida());
+                cfg.AddProfile(new Mappings());
             }));
 
             containerBuilder.Register(ctx => ctx.Resolve<MapperConfiguration>().CreateMapper()).As<IMapper>().InstancePerLifetimeScope();

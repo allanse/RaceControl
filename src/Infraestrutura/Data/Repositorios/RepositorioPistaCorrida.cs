@@ -9,13 +9,12 @@ using System.Threading.Tasks;
 
 namespace RaceControl.Infraestrutura.Data.Repositorios
 {
-    public class RepositorioHistoricoCorrida : RepositorioBase<HistoricoCorrida>, IRepositorioHistoricoCorrida
+    public class RepositorioPistaCorrida : RepositorioBase<PistaCorrida>, IRepositorioPistaCorrida
     {
-        private readonly IRepositorioBase<Competidor> repositorioCompetidor;
 
-        public RepositorioHistoricoCorrida(Contexto contexto, IRepositorioBase<Competidor> repositorioCompetidor) : base(contexto)
+        public RepositorioPistaCorrida(Contexto contexto) : base(contexto)
         {
-            this.repositorioCompetidor = repositorioCompetidor;
+            
         }
 
         public async Task<IEnumerable<PistaCorrida>> ObterPistasUtilizadas()

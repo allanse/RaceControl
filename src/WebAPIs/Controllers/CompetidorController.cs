@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using RaceControl.Dominio.DTOs;
 using RaceControl.Dominio.Entidades;
 using RaceControl.Dominio.Servicos;
@@ -12,34 +13,52 @@ namespace RaceControl.WebAPIs.Controllers
     public class CompetidorController : ControllerBase
     {
         private readonly ServicoCompetidor servicoCompetidor;
+        private readonly IMapper mapper;
 
-        public CompetidorController (ServicoCompetidor servicoCompetidor)
+        public CompetidorController (ServicoCompetidor servicoCompetidor, IMapper mapper)
         {
             this.servicoCompetidor = servicoCompetidor;
+            this.mapper = mapper;
         }
 
         [HttpPost]
-        public async Task<ActionResult<Competidor>> Adicionar([FromBody] Competidor competidor)
+        public async Task<ActionResult<Competidor>> Adicionar([FromBody] CompetidorDTO competidorDTO)
         {
-            if (!servicoCompetidor.ValidarCompetidor(competidor))
-            {
-                return BadRequest("Competidor inválido!");
-            }
+            
+            Competidor competidor = mapper.Map<Competidor>(competidorDTO);
 
-            await servicoCompetidor.Add(competidor);
+            try
+            {
+                if (competidor.ValidarClasse())
+                {
+                    await servicoCompetidor.Add(competidor);
+                }                
+            }
+            catch (System.Exception e)
+            {
+                return BadRequest(e.Message);
+            }              
 
             return Ok("Competidor inserido com sucesso!");
         }
 
         [HttpPut]
-        public async Task<ActionResult<Competidor>> Atualizar([FromBody] Competidor competidor)
+        public async Task<ActionResult<Competidor>> Atualizar([FromBody] CompetidorDTO competidorDTO)
         {
-            if (!servicoCompetidor.ValidarCompetidor(competidor))
-            {
-                return BadRequest("Competidor inválido!");
-            }
 
-            await servicoCompetidor.Update(competidor);
+            Competidor competidor = mapper.Map<Competidor>(competidorDTO);
+
+            try
+            {
+                if (competidor.ValidarClasse())
+                {
+                    await servicoCompetidor.Update(competidor);
+                }
+            }
+            catch (System.Exception e)
+            {
+                return BadRequest(e.Message);
+            }  
 
             return Ok("Competidor atualizado com sucesso!");
         }

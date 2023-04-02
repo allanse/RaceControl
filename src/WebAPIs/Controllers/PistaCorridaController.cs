@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RaceControl.Dominio.Entidades;
 using RaceControl.Dominio.Servicos;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace RaceControl.WebAPIs.Controllers
@@ -49,5 +50,13 @@ namespace RaceControl.WebAPIs.Controllers
             return Ok(result);
         }
 
+        [HttpGet]
+        [Route("pistas-utilizadas")]
+        public async Task<ActionResult<IEnumerable<PistaCorrida>>> GetPistasUtilizadas()
+        {
+            var pistas = await servicoPistaCorrida.ObterPistasUtilizadas();
+
+            return Ok(pistas);
+        }
     }
 }

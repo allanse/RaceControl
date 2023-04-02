@@ -50,13 +50,6 @@ namespace RaceControl.WebAPIs.Controllers
             return Ok("Historico atualizado com sucesso!");
         }
 
-        [HttpGet]
-        [Route("pistas-utilizadas")]
-        public async Task<ActionResult<IEnumerable<PistaCorrida>>> GetPistasUtilizadas()
-        {
-            var pistas = await servicoHistoricoCorrida.ObterPistasUtilizadas();
-            
-            return Ok(pistas);
-        }        
+                
     }
 }

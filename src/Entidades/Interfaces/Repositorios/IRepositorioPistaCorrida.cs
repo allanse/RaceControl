@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace RaceControl.Dominio.Interfaces
 {
-    public interface IRepositorioHistoricoCorrida : IRepositorioBase<HistoricoCorrida>
+    public interface IRepositorioPistaCorrida : IRepositorioBase<PistaCorrida>
     {
         Task<IEnumerable<PistaCorrida>> ObterPistasUtilizadas();        
     }

@@ -39,7 +39,7 @@ namespace WebAPIs
 
         public void ConfigureContainer(ContainerBuilder containerBuilder)
         {
-            containerBuilder.RegisterModule(new ModuloIOC());
+            containerBuilder.RegisterModule(new ModuloDI());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

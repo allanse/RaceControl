@@ -9,9 +9,9 @@ namespace RaceControl.Dominio.Servicos
 {
     public class ServicoHistoricoCorrida : ServicoBase<HistoricoCorrida>
     {
-        private readonly IRepositorioHistoricoCorrida repositorioHistoricoCorrida;
+        private readonly IRepositorioPistaCorrida repositorioHistoricoCorrida;
 
-        public ServicoHistoricoCorrida(IRepositorioBase<HistoricoCorrida> repositorio, IRepositorioHistoricoCorrida repositorioHistoricoCorrida) : base(repositorio)
+        public ServicoHistoricoCorrida(IRepositorioBase<HistoricoCorrida> repositorio, IRepositorioPistaCorrida repositorioHistoricoCorrida) : base(repositorio)
         {
             this.repositorioHistoricoCorrida = repositorioHistoricoCorrida;
         }
@@ -25,13 +25,5 @@ namespace RaceControl.Dominio.Servicos
 
             return true;
         }
-        public async Task<IEnumerable<PistaCorrida>> ObterPistasUtilizadas()
-        {
-            var pistas = await repositorioHistoricoCorrida.ObterPistasUtilizadas();
-
-            return pistas;
-        }
-
-        
     }
 }
